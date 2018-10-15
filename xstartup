@@ -6,7 +6,7 @@ vglclient &
 XFCE_PANEL_MIGRATE_DEFAULT=true startxfce4 &
 
 #fslview can only handle 1 image?
-vglrun trackvis `find /input -name *.trk` &
+vglrun /usr/lcoal/licensed-bin/trackvis `find /input -name *.trk` &
 
 #find the window id
 pid=$!
