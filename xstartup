@@ -5,15 +5,9 @@ vglclient &
 
 XFCE_PANEL_MIGRATE_DEFAULT=true startxfce4 &
 
-#fslview can only handle 1 image?
-vglrun /usr/lcoal/licensed-bin/trackvis `find /input -name *.trk` &
+#install license
+mkdir -p "/root/.config/Massachusetts General Hospital"
+cp -r /usr/local/licensed-bin/TrackVis.conf "/root/.config/Massachusetts General Hospital"
+vglrun /usr/local/licensed-bin/trackvis `find /input -name *.trk` &
 
-#find the window id
-pid=$!
-#sleep 2
-#id=`wmctrl -pl | grep " $pid " | cut -f 1 -d " "`
-##echo $id > /id.txt
-#wmctrl -i -r $id -b add,fullscreen
-
-#run it for an hour
 sleep 3600

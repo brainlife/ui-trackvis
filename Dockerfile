@@ -6,6 +6,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y vim tigh
 EXPOSE 5900
 
 #We are not allowed to re-distribute TrackVis software. It has to be mounted from the host
+#-v /usr/local/licensed-bin
+RUN apt-get install -y libjpeg62
 
 ADD virtualgl_2.6_amd64.deb /
 RUN dpkg -i /virtualgl_2.6_amd64.deb
