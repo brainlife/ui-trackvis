@@ -26,4 +26,5 @@ We ask that you the following articles when publishing papers that used data, co
 # License
 
 Copyright © 2020 brainlife.io at University of Texas at Austin and Indiana University
+
 Copyright © 2015 Ruopeng Wang, Van J. Wedeen, Athinoula A. Martinos Center for Biomedical Imaging, Department of Radiology, Massachusetts 
