@@ -1,30 +1,64 @@
-# ui-trackvis
-Brainlife's trackvis viewer.
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset=".github/brand/brainlife-mark-on-dark.svg">
+    <img src=".github/brand/brainlife-mark-on-light.svg" alt="brainlife.io" width="140">
+  </picture>
+</p>
 
-We are not allowed to distribute TrackVis software. The software itself must be mounted from the host.
+<h1 align="center">ui-trackvis</h1>
 
-### Authors
-- [Franco Pestilli](pestilli@utexas.edu)
+<p align="center">
+  TrackVis for brainlife.io datasets.
+</p>
 
-### Contributors
-- [Franco Pestilli](pestilli@utexas.edu)
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg" alt="MIT license"></a>
+  <img src="https://img.shields.io/badge/Status-dormant-yellow.svg" alt="Status: dormant">
+  <a href="https://brainlife.io"><img src="https://img.shields.io/badge/brainlife.io-site-3b9fd0.svg" alt="brainlife.io"></a>
+  <a href="https://brainlife.io/docs"><img src="https://img.shields.io/badge/Docs-brainlife.io%2Fdocs-005981.svg" alt="Documentation"></a>
+  <a href="https://doi.org/10.1038/s41592-024-02237-2"><img src="https://img.shields.io/badge/DOI-10.1038%2Fs41592--024--02237--2-e57536.svg" alt="Nature Methods paper"></a>
+</p>
 
-### Funding Acknowledgement
-brainlife.io is publicly funded and for the sustainability of the project it is helpful to Acknowledge the use of the platform. We kindly ask that you acknowledge the funding below in your code and publications. Copy and past the following lines into your repository when using this code.
+## 🧠 At a glance
 
-[![NSF-BCS-1734853](https://img.shields.io/badge/NSF_BCS-1734853-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1734853)
-[![NSF-BCS-1636893](https://img.shields.io/badge/NSF_BCS-1636893-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1636893)
-[![NSF-ACI-1916518](https://img.shields.io/badge/NSF_ACI-1916518-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1916518)
-[![NSF-IIS-1912270](https://img.shields.io/badge/NSF_IIS-1912270-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1912270)
-[![NIH-NIBIB-R01EB029272](https://img.shields.io/badge/NIH_NIBIB-R01EB029272-green.svg)](https://grantome.com/grant/NIH/R01-EB029272-01)
+| | |
+|---|---|
+| 🧭 **What** | Docker container that runs [TrackVis](http://trackvis.org/) on a virtual desktop; brainlife.io starts it with [abcd-novnc](https://github.com/brainlife/abcd-novnc) and streams it to the browser |
+| 🗂️ **Datatypes** | `neuro/track/trk` |
+| 🕰️ **Last change** | 2020-08-06 |
 
-### Citations
-We ask that you the following articles when publishing papers that used data, code or other resources created by the brainlife.io community.
+## ⚙️ How brainlife.io runs it
 
-1. Avesani, P., McPherson, B., Hayashi, S. et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. Sci Data 6, 69 (2019). [https://doi.org/10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
+When a user opens a dataset with this viewer, [abcd-novnc](https://github.com/brainlife/abcd-novnc) (itself an ABCD App run by amaretti) pulls the container, starts it with the dataset mounted (path in `INPUT_DIR`), sets a one-time VNC password (`X11VNC_PASSWORD`) and proxies the VNC session to the browser through noVNC. GPU viewers use VirtualGL.
 
-# License
+## 💻 Build and try it
 
-Copyright © 2020 brainlife.io at University of Texas at Austin and Indiana University
+```bash
+git clone https://github.com/brainlife/ui-trackvis && cd ui-trackvis
+./build.sh                          # docker build (see the script for the image name)
+```
+Then run it as in `test.sh` and connect a VNC client to port 5900.
 
-Copyright © 2015 Ruopeng Wang, Van J. Wedeen, Athinoula A. Martinos Center for Biomedical Imaging, Department of Radiology, Massachusetts 
+## 📝 Notes
+
+TrackVis cannot be redistributed: the software must be mounted from the host.
+
+## 🔗 Related
+
+[ui-niivue](https://github.com/brainlife/ui-niivue) (current in-browser viewer) · [abcd-novnc](https://github.com/brainlife/abcd-novnc) (desktop viewer launcher) · [warehouse-next](https://github.com/brainlife/warehouse-next) (datatypes and their viewers)
+
+## 📚 Citing
+
+If you use brainlife.io in your work, please cite:
+
+> Hayashi S, Caron BA, Heinsfeld AS, et al. brainlife.io: a decentralized and open-source cloud platform to support neuroscience research. *Nature Methods* 21:809–813 (2024). [doi:10.1038/s41592-024-02237-2](https://doi.org/10.1038/s41592-024-02237-2)
+
+## 🤝 Contributing
+
+Issues and pull requests are welcome in this repository. For help using brainlife.io, see the [documentation](https://brainlife.io/docs).
+
+## ⚖️ License
+
+[MIT](LICENSE).
+
+<p align="center"><sub>brainlife.io · Brain data across scales. One place to analyze, share and publish it. · The University of Texas at Austin</sub></p>
